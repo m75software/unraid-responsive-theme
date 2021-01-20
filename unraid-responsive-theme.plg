@@ -26,7 +26,7 @@ The plugin provides a responsive theme for unRAID systems.
 -->
 
 <!--
-Get the package.
+Get the style sheet.
 -->
 <FILE Name="/boot/packages/dynamix-responsive.css">
 <URL>https://raw.githubusercontent.com/m75software/unraid-responsive-theme/main/dynamix-responsive.css</URL>
