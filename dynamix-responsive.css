@@ -1,3 +1,22 @@
 :root {
   --dark-primary: #121212;
+  --dark-primary-text: rgba(255, 255, 255, 0.75);
+  
+  --dark-secondary: #ff8d2f;
+  --dark-secondary-text: rgba(0, 0, 0, 0.80);
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color: var(--dark-primary-text);
+    background: var(--dark-primary);
+  }
+ 
+  a {
+    color: var(--dark-secondary);
+  }
+}
+ 
+@media (prefers-color-scheme: light) {
+  /* Light theme styles go here */
 }
