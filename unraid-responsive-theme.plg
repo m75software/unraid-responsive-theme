@@ -28,23 +28,16 @@ The plugin provides a responsive theme for unRAID systems.
 <!--
 Get the style sheet.
 -->
-<FILE Name="/boot/packages/dynamix-responsive.css">
+<FILE Name="/boot/config/plugins/&name;/dynamix-responsive.css">
 <URL>https://raw.githubusercontent.com/m75software/unraid-responsive-theme/main/dynamix-responsive.css</URL>
 </FILE>
-
-<!--
-Prepare for installation by removing the emhttp/plugins directory.
--->
-<FILE Run="/bin/bash">
-<INLINE>
-# Remove emhttp files so we can re-install.
-rm /usr/local/emhttp/plugins/&name;/* 2>/dev/null
-
-# Remove old 'package' files.
-rm -f $(ls /boot/packages/dynamix-responsive.css 2>/dev/null)
-</INLINE>
+<FILE Name="/usr/local/emhttp/plugins/&name;/dynamix-responsive.css">
+<LOCAL>/boot/config/plugins/&name;/dynamix-responsive.css</LOCAL>
 </FILE>
-
+<FILE Name="/usr/local/emhttp/styles/dynamix-responsive.css">
+<LOCAL>/boot/config/plugins/&name;/dynamix-responsive.css</LOCAL>
+</FILE>
+         
 <!--
 Plugin icon file
 -->
