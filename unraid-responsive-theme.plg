@@ -31,10 +31,7 @@ Get the style sheet.
 <FILE Name="/boot/config/plugins/&name;/dynamix-responsive.css">
 <URL>https://raw.githubusercontent.com/m75software/unraid-responsive-theme/main/dynamix-responsive.css</URL>
 </FILE>
-<FILE Name="/usr/local/emhttp/plugins/&name;/dynamix-responsive.css">
-<LOCAL>/boot/config/plugins/&name;/dynamix-responsive.css</LOCAL>
-</FILE>
-<FILE Name="/usr/local/emhttp/styles/dynamix-responsive.css">
+<FILE Name="/usr/local/emhttp/plugins/dynamix/styles/dynamix-responsive.css">
 <LOCAL>/boot/config/plugins/&name;/dynamix-responsive.css</LOCAL>
 </FILE>
          
@@ -70,6 +67,7 @@ removepkg &name;
 
 # Remove plugin.
 rm -f -r /usr/local/emhttp/plugins/&name;
+rm -f /usr/local/emhttp/plugins/dynamix/styles/dynamix-responsive.css
 </INLINE>
 </FILE>
 
