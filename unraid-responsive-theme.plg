@@ -41,7 +41,7 @@ Prepare for installation by removing the emhttp/plugins directory.
 rm /usr/local/emhttp/plugins/&name;/* 2>/dev/null
 
 # Remove old 'package' files.
-rm -f $(ls /boot/packages/dynamix-responsive.css 2>/dev/null | grep -v '&pkgversion;')
+rm -f $(ls /boot/packages/dynamix-responsive.css 2>/dev/null)
 </INLINE>
 </FILE>
 
