@@ -4,7 +4,7 @@
 <!ENTITY name      "unraid-responsive-theme">
 <!ENTITY author    "m75software">
 <!ENTITY version   "2021.01.19">
-<!ENTITY pluginURL "https://">
+<!ENTITY pluginURL "https://raw.githubusercontent.com/m75software/unraid-responsive-theme/main/unraid-responsive-theme.plg">
 ]>
 
 <PLUGIN  name="&name;"
@@ -41,7 +41,7 @@ Prepare for installation by removing the emhttp/plugins directory.
 rm /usr/local/emhttp/plugins/&name;/* 2>/dev/null
 
 # Remove old 'package' files.
-rm -f $(ls /boot/packages/&name;*.txz 2>/dev/null | grep -v '&pkgversion;')
+rm -f $(ls /boot/packages/dynamix-responsive.css 2>/dev/null | grep -v '&pkgversion;')
 </INLINE>
 </FILE>
 
@@ -70,7 +70,7 @@ The 'remove' script.
 <FILE Run="/bin/bash" Method="remove">
 <INLINE>
 # Remove old 'package' files.
-rm -f $(ls /boot/packages/&name;*.txz 2>/dev/null)
+rm -f $(ls /boot/packages/dynamix-responsive.css 2>/dev/null)
 
 # Remove the package.
 removepkg &name;
