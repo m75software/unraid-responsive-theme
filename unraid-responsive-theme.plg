@@ -1,0 +1,83 @@
+<?xml version='1.0' standalone='yes'?>
+
+<!DOCTYPE PLUGIN [
+<!ENTITY name      "unraid-responsive-theme">
+<!ENTITY author    "m75software">
+<!ENTITY version   "2021.01.19">
+<!ENTITY pluginURL "https://">
+]>
+
+<PLUGIN  name="&name;"
+         author="&author;"
+         version="&version;"
+         pluginURL="&pluginURL;">
+
+<CHANGES>
+##&name;
+
+###2021.01.19
+- Initial unRAID V6 release.
+</CHANGES>
+
+<!--
+
+The plugin provides a responsive theme for unRAID systems.
+
+-->
+
+<!--
+Get the package.
+-->
+<FILE Name="/boot/packages/ntfs-3g-&version;-x86_64-1.txz" Run="upgradepkg --install-new">
+<URL>http://slackbuilds.org/mirror/slackware/slackware64-current/slackware64/a/ntfs-3g-&pkgversion;-x86_64-1.txz</URL>
+</FILE>
+
+<!--
+Prepare for installation by removing the emhttp/plugins directory.
+-->
+<FILE Run="/bin/bash">
+<INLINE>
+# Remove emhttp files so we can re-install.
+rm /usr/local/emhttp/plugins/&name;/* 2>/dev/null
+
+# Remove old 'package' files.
+rm -f $(ls /boot/packages/&name;*.txz 2>/dev/null | grep -v '&pkgversion;')
+</INLINE>
+</FILE>
+
+<!--
+Plugin icon file
+-->
+<FILE Name="/boot/config/plugins/&name;/icon.svg">
+<URL>https://raw.githubusercontent.com/m75software/unraid-responsive-theme/main/icon.svg</URL>
+</FILE>
+<FILE Name="/usr/local/emhttp/plugins/&name;/icon.svg">
+<LOCAL>/boot/config/plugins/&name;/icon.svg</LOCAL>
+</FILE>
+
+<!--
+create plugin README.md file
+-->
+<FILE Name="/usr/local/emhttp/plugins/&name;/README.md">
+<INLINE>
+A plugin for Unraid that installs a responsive theme.
+</INLINE>
+</FILE>
+
+<!--
+The 'remove' script.
+-->
+<FILE Run="/bin/bash" Method="remove">
+<INLINE>
+# Remove old 'package' files.
+rm -f $(ls /boot/packages/&name;*.txz 2>/dev/null)
+
+# Remove the package.
+removepkg &name;
+
+# Remove plugin.
+rm -f -r /usr/local/emhttp/plugins/&name;
+</INLINE>
+</FILE>
+
+</PLUGIN>
